@@ -51,8 +51,8 @@ I created the appl, tested and created documentation.
 
 ###  Running This Application:
 
-The url to run this appl is  
-
+To run this application, pull  https://github.com/energizedc/burger.git  and in terminal run "node server.js"
+or run from Heroku URL.
 This Application is hosted in Heroku and Github.
 
 
