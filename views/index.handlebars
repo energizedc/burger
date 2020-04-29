@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center" id="top-bar">
+            <img src="/assets/img/burger.jpg" alt="burger" />
+            <h1> Eat-Da-Burger! </h1>
+        </div>
+        <div class="col-md-6 text-center" class="task">
+            <div class="row">
+                {{#each burger_data}}
+                {{#unless this.devoured}}
+                <div class="col-md-9 text-center">
+                    <pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+                    <!-- {{this.Date}} -->
+                </div>
+                <div class="col-md-3 text-center">
+                    
+                        <button class="devour" type="submit" class="btn btn-default" value={{this.id}}>Devour it!</button>
+                   
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-md-6 text-center" class="task">
+            {{#each burger_data}}
+            {{#if this.devoured}}
+            <pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center enter_section">
+            <form action="/burgers/create" method="POST">
+                <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+                <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+            </form>
+            <p>Enter a burger you want to eat Click the "Submit" button.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+$(".devour").on("click", function(){
+    event.preventDefault()     ///dont refresh screen yet ///
+    console.log("devour clicked")
+    console.log($(this).val())
+    var id = $(this).val()    //ajax is calling from the front end to the back end ///
+    $.ajax({url:"/burgers/" + id,method:"put"}).then(function(result){location.reload()})
+})      ///function is the call back when you are back from the backend with results and reload the page ///
+
+
+</script>
