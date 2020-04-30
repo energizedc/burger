@@ -51,4 +51,8 @@ I created the appl, tested and created documentation.
 
 ###  Running This Application:
 
-To run this application, pull  Heroku URL 
+To run this application       https://daburgerdcj.herokuapp.com/burgers
+
+GitHub location               https://github.com/energizedc/burger.git
+
+
